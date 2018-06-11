@@ -38,6 +38,11 @@ class Serious extends BaseController
 
     public function del(){
         $id = input('get.id');
+        $res = Db::table('product')->where('serious_id',$id)->find();
+        if($res){
+            $this->error('此分类下有产品，无法删除');
+            exit;
+        }
         $res = Db::table('serious')->where('id',$id)->delete();
         if($res){
             $this->success('删除成功','index');

@@ -33,6 +33,11 @@ class Category extends BaseController
     public function del(){
         $id = input('get.id');
         $image_id=input('get.img_id');
+        $res = Db::table('product')->where('category_id',$id)->find();
+        if($res){
+            $this->error('此分类下有产品，无法删除');
+            exit;
+        }
         $res = Db::table('category')->where('id',$id)->delete();
         $res2 = Db::table('image')->where('id',$image_id)->delete();
         if($res&&$res2){
