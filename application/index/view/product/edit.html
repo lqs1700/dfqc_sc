@@ -16,6 +16,7 @@
 			<td>产品版本：</td>
 			<td>
 				<select name="version_id">
+					<option value="0">无</option>
 					{volist name='version' id='val'}
 					<option value={$val.id} {if $product.version ==$val.name} selected {/if} >{$val.name}</option>
 					{/volist}
@@ -26,6 +27,7 @@
 			<td>产品系列：</td>
 			<td>
 				<select name="serious_id">
+					<option value="0">无</option>
 					{volist name='serious' id='val'}
 					<option value={$val.id} {if $product.serious ==$val.name} selected {/if} >{$val.name}</option>
 					{/volist}
