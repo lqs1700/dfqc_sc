@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"E:\wamp64\www\dfqc_sc\public/../application/index\view\category\add.html";i:1528709428;}*/ ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
     <link href="__STATIC__/css/add.css" rel="stylesheet" type="text/css" />
     <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 </head>
-<form action="{:url('category/add')}" method="post" enctype="multipart/form-data">
+<form action="<?php echo url('category/add'); ?>" method="post" enctype="multipart/form-data">
     <table style="width: 103%;">
         <tr>
             <td style="width:10%;">分类名称：</td>
@@ -39,7 +40,7 @@
         var category_name = $("#category_name").val();
         if (category_name) {
             $.ajax({
-                url:"{:url('category/checka')}",
+                url:"<?php echo url('category/checka'); ?>",
                 method: 'GET',
                 data: {category_name: category_name},
                 dataType: 'JSON',

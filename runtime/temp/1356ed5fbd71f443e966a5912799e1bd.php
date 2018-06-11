@@ -1,9 +1,10 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:70:"E:\wamp64\www\dfqc_sc\public/../application/index\view\banner\add.html";i:1528710119;}*/ ?>
 <meta charset="utf-8" />
 <link href="__STATIC__/css/add.css" rel="stylesheet" type="text/css" />
 <style>
 	input[type="text"], select{ padding: 3px 8px;}
 </style>
-<form action="{:url('/index/banner/add')}" method="post" enctype="multipart/form-data">
+<form action="<?php echo url('/index/banner/add'); ?>" method="post" enctype="multipart/form-data">
 	<table style="width: 107%;">
 	<tr>
 		<td style="width: 10%;">banner图片：</td>

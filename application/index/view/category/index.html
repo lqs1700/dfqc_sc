@@ -13,15 +13,17 @@
     <tr>
         <th style="width:5%;">ID 号</th>
         <th style="width:10%;">分 类 名 称</th>
+        <th  style="width:10%;">分类图标</th>
         <th style="width:10%;">操 作</th>
     </tr>
-    <?php foreach($res as $value):?>
+    {volist name="res" id="value"}
     <tr>
-        <td><?php echo $value['id'];?></td>
-        <td><?php echo $value['name'];?></td>
-        <td><a href="{:url('del')}?id=<?php echo $value['id'];?>">删除</a></td>
+        <td>{$value.id}</td>
+        <td>{$value.name}</td>
+        <td><img src="__STATIC__/img/{$value.url}" alt=""></td>
+        <td><a href="{:url('del')}?id={$value.id}&&img_id={$value.icon_image_id}">删除</a></td>
     </tr>
-    <?php endforeach;?>
+    {/volist}
 </table>
 {$page}
 </body>

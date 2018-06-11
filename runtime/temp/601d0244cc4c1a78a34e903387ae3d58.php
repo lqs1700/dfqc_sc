@@ -1,7 +1,8 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:69:"E:\wamp64\www\dfqc_sc\public/../application/index\view\theme\add.html";i:1528710052;}*/ ?>
 <meta charset="utf-8" />
 <link href="__STATIC__/css/add.css" rel="stylesheet" type="text/css" />
 <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-<form action="{:url('theme/add')}" method="POST" enctype="multipart/form-data">
+<form action="<?php echo url('theme/add'); ?>" method="POST" enctype="multipart/form-data">
     <table style="width: 64%;">
         <tr>
             <td>主 题 名 称：</td>

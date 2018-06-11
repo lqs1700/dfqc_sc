@@ -69,8 +69,8 @@
 				$res3 = Db::table($table2)->insert($data2);
 				Db::commit();
 			}catch(\Exception $ex){
-					Db::rollback();
-					throw $ex;
+				Db::rollback();
+				throw $ex;
 			}
 			if($res3){
 				$this->success('添加成功',$toUrl);

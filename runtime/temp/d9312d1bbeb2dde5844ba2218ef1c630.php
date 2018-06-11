@@ -1,10 +1,11 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"E:\wamp64\www\dfqc_sc\public/../application/index\view\product\add.html";i:1528709808;}*/ ?>
 <meta charset="utf-8" />
 <link href="__STATIC__/css/add.css" rel="stylesheet" type="text/css" />
 <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 <style>
 	.tijiao>input[type='reset'] { left: 137px; }
 </style>
-<form action="{:url('add')}" method="POST" enctype="multipart/form-data">
+<form action="<?php echo url('add'); ?>" method="POST" enctype="multipart/form-data">
 	<table style="width: 69%;">
 		<tr>
 			<td>产品分类：</td>
