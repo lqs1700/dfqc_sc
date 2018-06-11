@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"E:\wamp64\www\dfqc_sc\public/../application/index\view\theme\index.html";i:1527931920;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"E:\wamp64\www\dfqc_sc\public/../application/index\view\theme\index.html";i:1528695676;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +14,7 @@
     <tr>
         <th style="width:5%;">ID 号</th>
         <th style="width:10%;">主 题 名 称</th>
-        <th style="width:20%;">主 题 图 片</th>
+        <th style="width:10%;">主 题 图 片</th>
         <th style="width:10%;">操 作</th>
     </tr>
 

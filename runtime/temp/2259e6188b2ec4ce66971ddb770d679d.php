@@ -1,9 +1,9 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:81:"E:\wamp64\www\dfqc_sc\public/../application/index\view\theme\addthemeproduct.html";i:1527931389;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:81:"E:\wamp64\www\dfqc_sc\public/../application/index\view\theme\addthemeproduct.html";i:1528685979;}*/ ?>
 <meta charset="utf-8" />
 
 <link href="__STATIC__/css/add.css" rel="stylesheet" type="text/css" />
 <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-<form action="<?php echo url('theme/add'); ?>" method="POST" enctype="multipart/form-data">
+<form action="<?php echo url('theme/addthemeproduct'); ?>?id=<?php echo $theme_id; ?>" method="POST" enctype="multipart/form-data">
     <table style="width: 36%;">
         <tr>
             <td>主 题 名 称：</td>

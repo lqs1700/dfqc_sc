@@ -30,10 +30,11 @@ class Theme extends BaseController
 
     public function themeProduct(){
         $themeproduct = Db::table('theme_product a')
-            ->field('b.description,c.name,d.url')
+            ->field('a.id,b.description,c.name,d.url')
             ->join('theme b','a.theme_id = b.id','left')
             ->join('product c','a.product_id = c.id','left')
             ->join('image d','b.top_image_id = d.id','left')
+            ->order('theme_id')
             ->paginate(10);
         $page = $themeproduct->render();
         $this->assign(['themeproduct'=>$themeproduct,'page'=>$page]);
@@ -74,19 +75,33 @@ class Theme extends BaseController
     public function addThemeProduct(){
         $theme_id = input('get.id');
         if($_POST){
-            $data['theme_id'] = input('get.id');
-            $data['product_id'] = input('post.product');
-            Db::table('theme_product')->insert($data);
+            $data['theme_id'] = $theme_id;
+            $data['product_id'] = input('post.product_id');
+            $res = Db::table('theme_product')->insert($data);
+            if($res){
+                $this->success('添加成功','themeproduct');
+            }
         }
         $theme = Db::table('theme')->where('id',$theme_id)->find();
         $product = Db::table('product')->select();
-        $this->assign(['product'=>$product,'theme'=>$theme]);
+        $this->assign(['theme_id'=>$theme_id,'product'=>$product,'theme'=>$theme]);
         return $this->fetch();
     }
 
+    public function delThemeProduct(){
+        $id = input('get.id');
+        $res = Db::table('theme_product')->where('id',$id)->delete();
+        if($res){
+            $this->success('删除成功','themeproduct');
+        }
+    }
     public function del(){
         $id = input('get.id');
         $image_id = input('get.image_id');
+        $res = Db::table('theme_product')->where('theme_id',$id)->select();
+        if($res){
+            $this->error('此主题下面有产品，无法删除');
+        }
         Db::startTrans();
         try{
             $res = Db::table('theme')->where('id',$id)->delete();
