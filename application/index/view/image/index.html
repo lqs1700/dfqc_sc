@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="__STATIC__/css/list.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h3>导	航	列	表</h3>
+<table cellspacing="1">
+    <tr>
+        <th>ID 号</th>
+        <th>图 片</th>
+        <th>名 称</th>
+    </tr>
+    {volist name='image' id ='val'}
+    <tr>
+        <td>{$val.id}</td>
+        <td><img src="__STATIC__/img/{$val.url}" alt=""></td>
+        <td>{$val.url}</td>
+    </tr>
+    {/volist}
+</table>
+{$page}
+</body>
+</html>

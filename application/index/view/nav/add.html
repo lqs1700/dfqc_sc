@@ -1,0 +1,49 @@
+<meta charset="utf-8" />
+<link href="__STATIC__/css/add.css" rel="stylesheet" type="text/css" />
+<form action="{:url('nav/addnav')}" method="post">
+	<table style="width: 34%;">
+		<tr>
+			<td>新导航名称：</td>
+			<td><input type="text" name="name" id="id_nav" required /></td>
+		</tr>
+		<tr>
+			<td>url：</td>
+			<td><input type="text" name="url" /></td>
+		</tr>
+
+		<tr>
+			<td>定位：</td>
+			<td><input type="text" name="position" /></td>
+		</tr>
+
+		<tr>
+			<td class="tijiao"><input type="submit" value="提交" /><input type="reset" value="重置" /></td>
+		</tr>
+	</table>
+</form>
+
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>	
+<script type="text/javascript">
+	$("#id_nav").blur(function() {
+		var nav_name = $("#id_nav").val();
+		if (nav_name) {	
+			$.ajax({
+				url: "{:url('nav/ajax')}",
+				method: 'GET',
+				data: {nav_name: nav_name},
+				dataType: 'JSON',
+				success: function(response) {
+					if (response) {
+						var tip = '<span style="color: red">'+ response['msg'] +'</span>';
+						$("#id_nav").siblings("span").remove();
+						$("#id_nav").parent().append(tip);	
+					}
+				}
+			});
+		} else {
+			var tip = '<span style="color: red">导航名称不能为空</span>';
+			$("#id_nav").siblings("span").remove();
+			$("#id_nav").parent().append(tip);
+		}
+	})
+</script>

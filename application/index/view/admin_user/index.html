@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="__STATIC__/css/list.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h3>管 	理  员	列	表</h3>
+<table cellspacing="1">
+	<tr>
+		<th>ID 号</th>
+		<th>登 陆 帐 号</th>
+		<th>操 作</th>
+	</tr>
+	{volist name="prigou" id="value"}
+	<tr>
+		<td>{$value.id}</td>
+		<td>{$value.app_id}</td>
+		<td>
+			<a href="{:url('admin_user/edit')}?id={$value.id}">修改</a>
+			<a href="{:url('admin_user/del')}?id={$value.id}">删除</a>
+		</td>
+	</tr>
+	{/volist}
+</table>
+<div class="clear"></div>
+</body>
+</html>

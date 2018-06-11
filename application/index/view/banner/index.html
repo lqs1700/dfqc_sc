@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="__STATIC__/css/list.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h3>banner	列	表</h3>
+<table cellspacing="1">
+	<tr>
+		<th>ID 号</th>
+		<th>图 片 id</th>
+		<th>轮 播 位 置</th>
+		<th>路 径</th>
+		<th>来 自</th>
+		<th>操 作</th>
+	</tr>
+		{volist name="banner" id="va"}
+	<tr>
+		<td>{$va.id}</td>
+		<td>{$va.img_id}</td>
+		<td>{$va.name}</td>
+		<td><img src="__STATIC__/img/{$va.url}"></td>
+		<td>{if $va.from=1}本地图片
+			{else /}网络图片
+			{/if}</td>
+		<td><a href="{:url('banner/del')}?id={$va.id}&&img_id={$va.img_id}">删除</a></td>
+	</tr>
+	{/volist}
+</table>
+	<div class="page">
+		{$page}
+	</div>
+</body>
+</html>

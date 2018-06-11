@@ -1,0 +1,23 @@
+<meta charset="utf-8" />
+<link href="__STATIC__/css/add.css" rel="stylesheet" type="text/css" />
+<form action="{:url('nav/edit')}?id={$nav.id}" method="post">
+    <table style="width: 35%;">
+        <tr>
+            <td style="height: 28px;">导航名称：</td>
+            <td>{$nav.name}</td>
+        </tr>
+        <tr>
+            <td>url：</td>
+            <td><input value={$nav.url} type="text" name="url" /></td>
+        </tr>
+
+        <tr>
+            <td>定位：</td>
+            <td><input value="{$nav.position}" type="text" name="position" /></td>
+        </tr>
+
+        <tr>
+            <td class="tijiao"><input type="submit" value="提交" /><input type="reset" value="重置" /></td>
+        </tr>
+    </table>
+</form>

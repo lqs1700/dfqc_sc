@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="__STATIC__/css/list.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h3>产	品	列	表</h3>
+<table cellspacing="1">
+	<tr>
+		<th style="width:4%;">ID 号</th>
+		<th style="width:10%;">分 类</th>
+		<th style="width:9%;">版 本</th>
+		<th style="width:9%;">系 列</th>
+		<th style="width:10%;">名 称</th>
+		<th style="width:10%;">价 格</th>
+		<th style="width:10%;">库 存</th>
+		<th style="width:20%;">主 图</th>
+		<th style="width:10%;">操 作</th>
+	</tr>
+	{volist name='products' id='val'}
+	<tr>
+		<td>{$val.id}</td>
+		<td>{$val.category}</td>
+		<td>{$val.version}</td>
+		<td>{$val.serious}</td>
+		<td>{$val.name}</td>
+		<td>{$val.price}</td>
+		<td>{$val.stock}</td>
+		<td><img src="__STATIC__/img/{$val.image}"></td>
+		<td><a href="{:url('product/edit')}?id={$val.id}">修改</a>
+		<a href="{:url('product/del')}?id={$val.id}">删除</a></td>
+	</tr>
+	{/volist}
+</table>
+	<div class="page">
+		{$page}
+	</div><!--page end-->
+<div class="clear"></div>
+</body>
+</html>
