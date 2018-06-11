@@ -18,6 +18,7 @@
 			<td>产品版本：</td>
 			<td>
 				<select name="version_id">
+					<option value="">无</option>
 					<?php foreach($version as $val):?>
 					<option value="<?php echo $val['id'];?>"><?php echo $val['name'];?></option>
 					<?php endforeach;?>
@@ -29,6 +30,7 @@
 			<td>产品系列：</td>
 			<td>
 				<select name="serious_id">
+					<option value="">无</option>
 					<?php foreach($serious as $val):?>
 					<option value="<?php echo $val['id'];?>"><?php echo $val['name'];?></option>
 					<?php endforeach;?>
