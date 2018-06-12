@@ -1,6 +1,7 @@
 <?php
 namespace app\index\controller;
 use think\Db;
+use think\Exception;
 
 class Product extends BaseController
 {
@@ -70,9 +71,20 @@ class Product extends BaseController
     public function del()
     {
         $id = input('get.id');
-        $res = Db::table('product')->where('id',$id)->delete();
-        if($res){
-            $this->success('删除成功','product/index');
+        Db::startTrans();
+        try{
+            $res = Db::table('product')->where('id',$id)->delete();
+            $theme = Db::table('theme_product')->where('product_id',$id)->find();
+            if($theme){
+                Db::table('theme_product')->where('product_id',$id)->delete();
+            }
+            if($res){
+                DB::commit();
+                $this->success('删除成功','product/index');
+            }
+        }catch(\Exception $ex){
+            Db::rollback();
+            throw $ex;
         }
     }
 
