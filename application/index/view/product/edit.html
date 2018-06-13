@@ -57,6 +57,15 @@
 				<button id="fileSpan" type="button" class="xiugaibtn" style="position: relative;right: 263px;height:28px;top:1px;">修改</button>
 			</td>
 		</tr>
+		<tr>
+			<td>详情选择：</td>
+			<td>
+				<select name="detail_image">
+					<option value="1" {if $product.detail_image=="1"} selected {/if} >车机详情</option>
+					<option value="2" {if $product.detail_image=="2"} selected {/if}>云镜详情</option>
+				</select>
+			</td>
+		</tr>
 
 		<tr>
 			<td class="tijiao"><input type="submit" value="修 改" /><input type="reset" value="取 消" /></td>

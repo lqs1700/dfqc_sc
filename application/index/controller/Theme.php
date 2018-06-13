@@ -11,7 +11,7 @@ class Theme extends BaseController
     public function index(){
         $theme = Db::table('theme a')
             ->field('a.*,b.url')
-            ->join('image b','a.top_image_id=b.id','left')
+            ->join('image b','a.topic_image_id=b.id','left')
             ->paginate(10);
         $page = $theme->render();
         $this->assign(['theme'=>$theme,'page'=>$page]);
@@ -33,7 +33,7 @@ class Theme extends BaseController
             ->field('a.id,b.description,c.name,d.url')
             ->join('theme b','a.theme_id = b.id','left')
             ->join('product c','a.product_id = c.id','left')
-            ->join('image d','b.top_image_id = d.id','left')
+            ->join('image d','b.topic_image_id = d.id','left')
             ->order('theme_id')
             ->paginate(10);
         $page = $themeproduct->render();
@@ -59,7 +59,7 @@ class Theme extends BaseController
                 if(!$image){
                     throw new ImageException();
                 }
-                $data['top_image_id'] = $image['id'];
+                $data['topic_image_id'] = $image['id'];
                 $res = Db::table($table)->insert($data);
                 Db::commit();
                 if($res){
@@ -90,8 +90,10 @@ class Theme extends BaseController
 
     public function delThemeProduct(){
         $id = input('get.id');
+        $image_id = input('get.image_id');
         $res = Db::table('theme_product')->where('id',$id)->delete();
-        if($res){
+        $res2 =Db::table('image')->where('id',$image_id)->delete();
+        if($res&&$res2){
             $this->success('删除成功','themeproduct');
         }
     }

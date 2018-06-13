@@ -8,7 +8,7 @@ class Product extends BaseController
     public function index()
     {
         $products = Db::table('product a')
-            ->field('a.id,a.name,a.price,a.stock,a.main_image_url as image,b.name as version,c.name as category,d.name as serious')
+            ->field('a.id,a.name,a.price,a.stock,a.main_image_url as image,CASE WHEN a.detail_image=1 THEN \'index@category4.png\' WHEN a.detail_image=2 THEN \'index@category5.png\'END AS detail_image,b.name as version,c.name as category,d.name as serious')
             ->join('version b','a.version_id=b.id','left')
             ->join('category c','a.category_id=c.id','left')
             ->join('serious d','a.serious_id=d.id','left')
@@ -55,7 +55,7 @@ class Product extends BaseController
         }
         $id = input('get.id');
         $product = Db::table('product a')
-            ->field('a.id,a.name,a.price,a.stock,a.main_image_url as image,b.name as version,c.name as category,d.name as serious')
+            ->field("a.id,a.name,a.price,a.stock,a.main_image_url as image,a.detail_image,b.name as version,c.name as category,d.name as serious")
             ->join('version b','a.version_id=b.id','left')
             ->join('category c','a.category_id=c.id','left')
             ->join('serious d','a.serious_id=d.id','left')

@@ -8,7 +8,7 @@ class Category extends BaseController
     public function index(){
         $res = Db::table('category a')
             ->field('a.*,b.url')
-            ->join('image b','a.icon_image_id=b.id','left')
+            ->join('image b','a.top_image_id=b.id','left')
             ->paginate(15);
         $page = $res->render();
         $this->assign(['res'=>$res,'page'=>$page]);
@@ -75,7 +75,7 @@ class Category extends BaseController
                 Db::table($table)->insert($data);
                 $res2 = Db::table($table)->where('url', $data['url'])->find();
                 $data2['name'] = input('post.category_name');
-                $data2['icon_image_id'] = $res2['id'];
+                $data2['top_image_id'] = $res2['id'];
                 $res3 = Db::table($table2)->insert($data2);
                 Db::commit();
             }catch(\Exception $ex){
