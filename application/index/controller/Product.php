@@ -13,8 +13,7 @@ class Product extends BaseController
             ->join('category c','a.category_id=c.id','left')
             ->join('serious d','a.serious_id=d.id','left')
             ->order('a.id desc')
-            ->limit(10)
-            ->paginate();
+            ->paginate(10);
         $page= $products->render();
         $this->assign(['products'=>$products,'page' => $page]);
         return $this->fetch();

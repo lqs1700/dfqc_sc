@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"E:\wamp64\www\dfqc_sc\public/../application/index\view\index\index.html";i:1527907960;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"E:\wamp64\www\dfqc_sc\public/../application/index\view\index\index.html";i:1528961132;}*/ ?>
 <!doctype html>
 <html>
 <head>
@@ -114,16 +114,6 @@
             </li>
             <li><a class="a" href="<?php echo url('banner/add'); ?>" target="rightFrame"
                    onClick="openurl('videoQuery.html');">轮播添加</a>
-            </li>
-        </ul>
-
-        <div class="div2">
-            <img src="__STATIC__/img/xiao6.png">
-            图片管理
-        </div>
-        <ul class="div3">
-            <li><a class="a" href="<?php echo url('image/index'); ?>" target="rightFrame"
-                   onClick="openurl('videoQuery.html');">图片列表</a>
             </li>
         </ul>
 

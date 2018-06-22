@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"E:\wamp64\www\dfqc_sc\public/../application/index\view\product\add.html";i:1528868962;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"E:\wamp64\www\dfqc_sc\public/../application/index\view\product\add.html";i:1528962481;}*/ ?>
 <meta charset="utf-8" />
 <link href="__STATIC__/css/add.css" rel="stylesheet" type="text/css" />
 <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
@@ -75,7 +75,6 @@
 		<tr>
 			<td class="tijiao"><input type="submit" value="添 加" /><input type="reset" value="取 消" /></td>
 		</tr>
-
 	</table>
 </form>
 

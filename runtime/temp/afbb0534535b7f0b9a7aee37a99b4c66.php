@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"E:\wamp64\www\dfqc_sc\public/../application/index\view\product\edit.html";i:1528868631;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"E:\wamp64\www\dfqc_sc\public/../application/index\view\product\edit.html";i:1528868969;}*/ ?>
 <meta charset="utf-8" />
 <link href="__STATIC__/css/add.css" rel="stylesheet" type="text/css" />
 <form action="<?php echo url('product/edit'); ?>?id=<?php echo $product['id']; ?>" method="POST" enctype="multipart/form-data">
@@ -59,7 +59,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td>详情图片：</td>
+			<td>详情选择：</td>
 			<td>
 				<select name="detail_image">
 					<option value="1" <?php if($product['detail_image']=="1"): ?> selected <?php endif; ?> >车机详情</option>
